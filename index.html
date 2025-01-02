@@ -7,34 +7,207 @@
                 color: #eeeeee;
                 background-color: #000000;
             }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
             body {
                 background-color: #eeeeee;
                 color: #000000; 
                 font-family: Avenir, Montserrat, Corbel, 'URW Gothic', 
                 source-sans-pro, sans-serif;
                 font-weight: normal;
+                padding: 1rem;
             }
-            #attributes {
-                width: 25%;
-                height: 350px;
+
+            /* Header Container */
+            .sheet-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                border-bottom: 2px solid #000;
+                padding-bottom: 1rem;
+                margin-bottom: 1rem;
+                gap: 1rem;
             }
+
+            /* Left side: Logo & Player Field */
+            .header-left {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .logo {
+                max-width: 250px; /* control logo size */
+                margin-bottom: 0.5rem;
+            }
+
+            .player-line {
+                display: flex;
+                align-items: center;
+                gap: 0.25rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .player-line label {
+                font-weight: bold;
+            }
+
+            /* Right side: character info */
+            .header-right{
+                display: flex;
+                flex-direction: column; /* each .header-row is stacked vertically */
+                gap: 0.5rem;            /* space between rows */
+                flex: 1;                /* let this side grow/shrink if needed */
+            }
+
+            /* Each row of fields */
+            .header-row {
+                display: flex;
+                flex-wrap: wrap;        /* wrap fields if screen is narrow */
+                gap: 0.5rem;              /* Space between field groups */
+            }
+
+            /* Labels and inputs in the right section */
+            .header-row label {
+                font-weight: bold;
+                margin-right: 0.25rem;
+            }
+
+            .header-row div {
+                display: flex;
+                flex-direction: row;    /* label + input side by side */
+                align-items: baseline; /* so the label and input align nicely */
+                gap: 0.25rem; 
+            }
+
+            /* Inputs - basic style */
+            .header-row input {
+                width: 8rem;
+            }
+
+            
         </style>
     </head>
     <body>
+        <header class="sheet-header">
+            <!-- Left side: Logo + Player field-->
+            <div class="header-left">
+                <img src="sw-logo-long.png" alt="Swords & Wizardry Logo" class="logo">
+                
+                <div class="player-line">
+                    <label for="playerName">Player:</label>
+                    <input type="text" id="playerName"/>
+                </div>
+                <div class="player-line">
+                    <label for="characterName">Character:</label>
+                    <input type="text" id="characterName"/>
+                </div>
+            </div>
 
-        <div id ="attributes">
-            <p>STRENGTH</p>
-            <h1>DEXTERITY</h1>
-            <h1>CONSTITUTION</h1>
-            <h1>WISDOM</h1>
-            <h1>INTELLIGENCE</h1>
-            <h1>CHARISMA</h1>
-        </div>
+            <!-- Right side: Character info fields-->
+            <div class="header-right">
+                <!-- Row 2-->
+                <div class="header-row">
+                    <div>
+                        <label for="charClass">Class:</label>
+                        <select name="charClass" id="charClass">
+                            <option value="" disabled selected>Select</option>
+                            <option value="assassin">Assassin</option>
+                            <option value="cleric">Cleric</option>
+                            <option value="druid">Druid</option>
+                            <option value="fighter">Fighter</option>
+                            <option value="magic-user">Magic-User</option>
+                            <option value="monk">Monk</option>
+                            <option value="paladin">Paladin</option>
+                            <option value="ranger">Ranger</option>
+                            <option value="thief">Thief</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="charAncestry">Ancestry:</label>
+                        <select name="charAncestry" id="charAncestry">
+                            <option value="" disabled selected>Select</option>
+                            <option value="dwarf">Dwarf</option>
+                            <option value="elf">Elf</option>
+                            <option value="half-elf">Half-Elf</option>
+                            <option value="halfling">Halfling</option>
+                            <option value="human">Human</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="charGender">Gender:</label>
+                        <input type ="text" id="charGender"/>
+                    </div>
+                </div>
+                
+                <!--Row 3-->    
+                <div class="header-row">   
+                    <div>
+                        <label for="charAlignment">Alignment:</label>
+                        <select name="charAlignment" id="charAlignment">
+                            <option value="" disabled selected>Select alignment</option>
+                            <option value="lawful">Lawful</option>
+                            <option value="neutral">Neutral</option>
+                            <option value="chaotic">Chaotic</option>
+                        </select>
+                    </div>
+                     <div>
+                        <label for="charDiety">Diety:</label>
+                        <input type ="text" id="charDiety"/>
+                    </div>
+                    <div>
+                        <label for="charAge">Age:</label>
+                        <input type ="text" id="charAge"/>
+                    </div>
+                </div>
 
+                <!--Row 4-->
+                <div class="header-row">
+                    <div>
+                        <label for="charPrimeAttribute">Prime Attribute:</label>
+                        <input
+                        type="text"
+                        id="charPrimeAttribute"
+                        placeholder="Select a class"
+                        readonly
+                        />
+                    </div>
+                    <div>
+                        <label for="xpBonus">XP Bonus:</label>
+                        <input type="text" id="xpBonus">
+                    </div>
+                </div>
 
-
-        <h1>THIS IS THE BEGINNING</h1>
-        <p>This is <strong>part two</strong></p>
-        <p>And now, <strong>part three</strong></p>
+                <!--Row 5-->
+                <div class="header-row">
+                    <div>
+                        <label for="charLevel">Level:</label>
+                        <select name="charLevel" id="charLevel">
+                            <option value="" disabled selected>0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>                
+                    <div>
+                        <label for="charXP">Experience Points:</label>
+                        <input type="text" id="charXP"/>
+                    </div>
+                </div>
+            </div>            
+        </header>
+        <script src="script.js"></script>            
     </body>
 </html>
