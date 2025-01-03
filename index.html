@@ -3,11 +3,6 @@
     <head>
         <title>Swords & Wizardry Character Sheet</title>
         <style type="text/css">
-            strong {
-                color: #eeeeee;
-                background-color: #000000;
-            }
-
             * {
                 margin: 0;
                 padding: 0;
@@ -27,7 +22,7 @@
             .sheet-header {
                 display: flex;
                 justify-content: space-between;
-                align-items: flex-start;
+                align-items: flex-end;
                 border-bottom: 2px solid #000;
                 padding-bottom: 1rem;
                 margin-bottom: 1rem;
@@ -42,7 +37,7 @@
             }
 
             .logo {
-                max-width: 150px; /* control logo size */
+                max-width: 250px; /* control logo size */
                 margin-bottom: 0.5rem;
             }
 
@@ -123,6 +118,20 @@
 
             <!-- Right side: Character info fields-->
             <div class="header-right">
+                <!-- Row 1-->
+                 <div class="header-row">
+                    <div>
+                        <label for="playerName">Player:</label>
+                        <input type="text" id="playerName"/>
+                    </div>
+                </div>
+                <!-- Row 2-->
+                 <div class="header-row">
+                    <div>
+                        <label for="characterName">Character:</label>
+                        <input type="text" id="characterName"/>
+                    </div>
+                 </div>
                 <!-- Row 2-->
                 <div class="header-row">
                     <div>
@@ -220,6 +229,36 @@
                 </div>
             </div>            
         </header>
+        <main>
+            <section>
+                <div class="attributes">
+                    <div class="score">
+                        <label for="strengthScore">Strength:</label>
+                        <input type="number" id="strengthScore">
+                    </div>
+                    <div class="score">
+                        <label for="dexterityScore">Dexterity:</label>
+                        <input type="number" id="dexterityScore">
+                    </div>
+                    <div class="score">
+                        <label for="constitutionScore">Constitution:</label>
+                        <input type="number" id="constitutionScore">
+                    </div>
+                    <div class="score">
+                        <label for="wisdomScore">Wisdom:</label>
+                        <input type="number" id="wisdomScore">
+                    </div>
+                    <div class="score">
+                        <label for="intelligenceScore">Intelligence:</label>
+                        <input type="number" id="intelligenceScore">
+                    </div>
+                    <div class="score">
+                        <label for="charismaScore">Charisma:</label>
+                        <input type="number" id="charismaScore">
+                    </div>
+                </div>
+            </section>
+        </main>
         <script src="script.js"></script>            
     </body>
 </html>
